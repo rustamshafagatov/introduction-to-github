@@ -1,0 +1,47 @@
+w="""MMMSXXMASM
+MSAMXMSMSA
+AMXSXMAAMM
+MSAMASMSMX
+XMASAMXAMM
+XXAMMXXAMA
+SMSMSASXSS
+SAXAMASAAA
+MAMMMXMMMM
+MXMXAXMASX"""
+
+
+
+x = w.splitlines()
+cem=0
+for i in range (len(x)):
+    c=x[i].count("XMAS") + x[i].count("SAMX")
+    cem+=c
+    for j in range (len(x[i])):
+        if x[i][j]=="X":
+            if (i<(len(x)-3)):
+                if x[i+1][j]=="M" and x[i+2][j]=="A" and x[i+3][j]=="S":
+                    cem+=1
+            if (i>2):
+                if (x[i-1][j])=="M" and x[i-2][j]=="A" and x[i-3][j]=="S":
+                    cem+=1        
+            if j>2 and i>2:
+                if x[i-1][j-1]=="M" and x[i-2][j-2]=="A" and x[i-3][j-3]=="S":
+                    cem+=1
+            if j>2 and i<(len(x)-3):
+                if x[i+1][j-1]=="M" and x[i+2][j-2]=="A" and x[i+3][j-3]=="S":
+                    cem+=1
+            if j<(len(x[i])-3) and i<(len(x)-3):
+                if x[i+1][j+1]=="M" and x[i+2][j+2]=="A" and x[i+3][j+3]=="S":
+                    cem+=1
+            if j<(len(x[i])-3) and i>2:
+                if x[i-1][j+1]=="M" and x[i-2][j+2]=="A" and x[i-3][j+3]=="S":
+                    cem+=1
+           
+           
+               
+   
+           
+           
+           
+
+print (cem)
